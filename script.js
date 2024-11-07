@@ -11,13 +11,12 @@ async function fetchData(){
 
     const data = await response.json();
     const pokemonSprite = data.sprites.front_default;
-    const imgElement = document.getElementById(pokemonSprite);
+    const imgElement = document.getElementById("pokemonSprite");
     
     imgElementsrc = pokemonSprite;
     imgElement.style.display = "block";
 
-  }
-  catch(error){
+  }catch(error){
     console.error(error);
   }
 }
