@@ -1,22 +1,22 @@
 fetchData();
 
-async function fetchData(){
-  try{
+async function fetchData() {
+  try {
+    const response = await fetch('your-api-endpoint');
 
-    const pokemonName= document.getElementById("pokemonName").value.toLowerCase();
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      const message = `An error has occurred: ${response.status} ${response.statusText}`;
+      throw new Error(message); // Throw an error to be caught
     }
 
-    const data = await response.json();
-    const pokemonSprite = data.sprites.front_default;
-    const imgElement = document.getElementById("pokemonSprite");
-    
-    imgElementsrc = pokemonSprite;
-    imgElement.style.display = "block";
+    const data = await response.json(); // or response.text(), etc.
+    // ... process data ...
+    return data;
 
-  }catch(error){
-    console.error(error);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    // Handle the error appropriately (e.g., display an error message to the user)
+    return null; // or throw the error again if you want to propagate it
   }
+}
 }
