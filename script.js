@@ -6,8 +6,7 @@ async function fetchData(){
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
 
     if (!response.ok) {
-      const message = `An error has occurred: ${response.status} ${response.statusText}`;
-      throw new Error(message); // Throw an error to be caught
+      throw new Error('Network response was not ok');
     }
 
     const data = await response.json();
