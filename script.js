@@ -1,4 +1,3 @@
-fetchData();
 
 async function fetchData() {
   try {
@@ -18,5 +17,4 @@ async function fetchData() {
     // Handle the error appropriately (e.g., display an error message to the user)
     return null; // or throw the error again if you want to propagate it
   }
-}
 }
